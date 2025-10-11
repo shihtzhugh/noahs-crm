@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api/v1/tools")
 public class ToolController {
 
-    private ToolService toolService;
+    private final ToolService toolService;
 
     public ToolController(ToolService toolService) {
         this.toolService = toolService;
