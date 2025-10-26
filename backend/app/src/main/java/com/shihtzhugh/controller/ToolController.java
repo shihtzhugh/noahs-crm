@@ -1,5 +1,6 @@
 package com.shihtzhugh.controller;
 
+import com.shihtzhugh.model.Tool;
 import com.shihtzhugh.model.dto.ToolDto;
 import com.shihtzhugh.service.ToolService;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,17 @@ public class ToolController {
 
     @GetMapping
     public ResponseEntity<List<ToolDto>> getAllTools() {
-        return ResponseEntity.ok(toolService.findAllTools());
+        var toolList = toolService.findAllTools();
+        return ResponseEntity.ok(
+                toolList.stream()
+                        .map(ToolDto::from)
+                        .toList());
     }
 
     @PostMapping
     public ResponseEntity<ToolDto> createTool(@RequestBody ToolDto toolDto) {
-        return ResponseEntity.ok(toolService.saveTool(toolDto));
+        var tool = Tool.from(toolDto);
+        var savedTool = toolService.saveTool(tool);
+        return ResponseEntity.ok(ToolDto.from(savedTool));
     }
 }

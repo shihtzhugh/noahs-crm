@@ -35,12 +35,12 @@ public class Tool {
 
     public static Tool from(ToolDto toolDto) {
         return new Tool(
-                toolDto.getPurchasePrice(),
-                toolDto.getManual(),
-                toolDto.getSerialNumber(),
-                toolDto.getModelNumber(),
-                toolDto.getCategory(),
-                toolDto.getBrand()
+                toolDto.purchasePrice(),
+                toolDto.manual(),
+                toolDto.serialNumber(),
+                toolDto.modelNumber(),
+                toolDto.category(),
+                toolDto.brand()
         );
     }
 

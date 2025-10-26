@@ -1,7 +1,6 @@
 package com.shihtzhugh.service;
 
 import com.shihtzhugh.model.Tool;
-import com.shihtzhugh.model.dto.ToolDto;
 import com.shihtzhugh.repository.ToolRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,15 +17,11 @@ public class ToolService {
         this.toolRepository = toolRepository;
     }
 
-    public List<ToolDto> findAllTools() {
-        return toolRepository.findAll()
-                .stream()
-                .map(ToolDto::from)
-                .toList();
+    public List<Tool> findAllTools() {
+        return toolRepository.findAll();
     }
 
-    public ToolDto saveTool(ToolDto toolDto) {
-        var tool = Tool.from(toolDto);
-        return ToolDto.from(toolRepository.save(tool));
+    public Tool saveTool(Tool tool) {
+        return toolRepository.save(tool);
     }
 }

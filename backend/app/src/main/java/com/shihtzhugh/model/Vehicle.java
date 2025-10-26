@@ -37,13 +37,13 @@ public class Vehicle {
 
     public static Vehicle from(VehicleDto vehicleDto) {
         return new Vehicle(
-                vehicleDto.getPurchasePrice(),
-                vehicleDto.getManual(),
-                vehicleDto.getVin(),
-                vehicleDto.getMake(),
-                vehicleDto.getModel(),
-                vehicleDto.getEngine(),
-                vehicleDto.getLicensePlate()
+                vehicleDto.purchasePrice(),
+                vehicleDto.manual(),
+                vehicleDto.vin(),
+                vehicleDto.make(),
+                vehicleDto.model(),
+                vehicleDto.engine(),
+                vehicleDto.licensePlate()
         );
     }
 

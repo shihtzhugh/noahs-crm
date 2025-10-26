@@ -1,7 +1,6 @@
 package com.shihtzhugh.service;
 
 import com.shihtzhugh.model.Vehicle;
-import com.shihtzhugh.model.dto.VehicleDto;
 import com.shihtzhugh.repository.VehicleRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +21,7 @@ public class VehicleService {
         return vehicleRepository.findAll();
     }
 
-    public Vehicle createVehicle(VehicleDto vehicleDto) {
-        return vehicleRepository.save(Vehicle.from(vehicleDto));
+    public Vehicle saveVehicle(Vehicle vehicle) {
+        return vehicleRepository.save(vehicle);
     }
 }
