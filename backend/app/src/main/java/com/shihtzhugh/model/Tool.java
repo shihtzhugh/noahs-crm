@@ -44,6 +44,14 @@ public class Tool {
         );
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public BigDecimal getPurchasePrice() {
         return purchasePrice;
     }
