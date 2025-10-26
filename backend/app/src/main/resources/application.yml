@@ -1,15 +1,23 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5434/postgres
-    username: postgres
-    password: admin
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
   jpa:
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-  thymeleaf:
-    cache: false
+
+spaces:
+  endpoint: ${SPACES_ENDPOINT}
+  access-key: ${SPACES_ACCESS_KEY}
+  secret-key: ${SPACES_SECRET_KEY}
+  bucket: ${SPACES_BUCKET}
+  region: ${SPACES_REGION}
