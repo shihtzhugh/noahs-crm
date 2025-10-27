@@ -7,5 +7,4 @@ RUN gradle build
 FROM amazoncorretto:21-al2023-headless
 WORKDIR /backend
 COPY --from=build /backend/app/build/libs/app.jar app.jar
-EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
