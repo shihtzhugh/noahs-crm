@@ -2,12 +2,14 @@ package com.shihtzhugh;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 @Component
+@Profile("other")
 public class StartupSpacesWriteTask implements CommandLineRunner {
 
     private final S3Client s3Client;
