@@ -21,6 +21,10 @@ public class ToolService {
         return toolRepository.findAll();
     }
 
+    public Tool findToolById(Long id) {
+        return toolRepository.findById(id).orElse(null);
+    }
+
     public Tool saveTool(Tool tool) {
         return toolRepository.save(tool);
     }

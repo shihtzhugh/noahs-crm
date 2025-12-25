@@ -1,6 +1,6 @@
 package com.shihtzhugh.model;
 
-import com.shihtzhugh.model.dto.ToolDto;
+import com.shihtzhugh.model.dto.CreateToolRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +15,7 @@ public class Tool {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String imageUri;
     private BigDecimal purchasePrice;
     private String manual;
     private String serialNumber;
@@ -22,9 +23,17 @@ public class Tool {
     private String category;
     private String brand;
 
-    protected Tool() {}
+    protected Tool() {
+    }
 
-    public Tool(BigDecimal purchasePrice, String manual, String serialNumber, String modelNumber, String category, String brand) {
+    public Tool(
+            BigDecimal purchasePrice,
+            String manual,
+            String serialNumber,
+            String modelNumber,
+            String category,
+            String brand
+    ) {
         this.purchasePrice = purchasePrice;
         this.manual = manual;
         this.serialNumber = serialNumber;
@@ -33,15 +42,23 @@ public class Tool {
         this.brand = brand;
     }
 
-    public static Tool from(ToolDto toolDto) {
+    public static Tool from(CreateToolRequest createToolRequest) {
         return new Tool(
-                toolDto.purchasePrice(),
-                toolDto.manual(),
-                toolDto.serialNumber(),
-                toolDto.modelNumber(),
-                toolDto.category(),
-                toolDto.brand()
+                createToolRequest.purchasePrice(),
+                createToolRequest.manual(),
+                createToolRequest.serialNumber(),
+                createToolRequest.modelNumber(),
+                createToolRequest.category(),
+                createToolRequest.brand()
         );
+    }
+
+    public String getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(String image) {
+        this.imageUri = image;
     }
 
     public Long getId() {
